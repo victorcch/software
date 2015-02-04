@@ -2,21 +2,21 @@ package refactoring.lab.logica;
 
 public class Fecha {
 	private int dia;
-	private int mes;
+	private int monat;
 	private int jahr;
 
-	public Fecha(int dia, int mes, int jahr) {
+	public Fecha(int dia, int monat, int jahr) {
 		this.dia = dia;
-		this.mes = mes;
+		this.monat = monat;
 		this.jahr = jahr;
 	}
 
 	public boolean valida() {
 		if (dia < 1 || dia > 31)
 			return false;
-		if (mes < 1 || mes > 12)
+		if (monat < 1 || monat > 12)
 			return false;
-		if (dia > diaMes()) {
+		if (dia > diamonat()) {
 			return false;
 		} else {
 			return true;
@@ -24,9 +24,9 @@ public class Fecha {
 
 	}
 
-	public int diaMes() {
-		int diames = 0;
-		switch (mes) {
+	public int diamonat() {
+		int diamonat = 0;
+		switch (monat) {
 		case 1:
 		case 3:
 		case 5:
@@ -34,23 +34,23 @@ public class Fecha {
 		case 8:
 		case 10:
 		case 12:
-			diames = 31;
+			diamonat = 31;
 			break;
 		case 4:
 		case 6:
 		case 9:
 		case 11:
-			diames = 30;
+			diamonat = 30;
 			break;
 		case 2: // verificación del año bisiesto
 			if (esBisiesto()) {
-				diames = 29;
+				diamonat = 29;
 			} else {
-				diames = 28;
+				diamonat = 28;
 			}
 			break;
 		}
-		return diames;
+		return diamonat;
 	}
 
 	public boolean esBisiesto() {
